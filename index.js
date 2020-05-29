@@ -1,3 +1,3 @@
-import { Login } from './src/components/LoginShared';
+import { Login } from './src/components/Login';
 
 export { Login };
