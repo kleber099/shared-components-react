@@ -9,8 +9,13 @@
     "prepare": "yarn run build"
   },
   "dependencies": {
+    "chroma-js": "2.0.4",
+    "lodash": "4.17.10",
+    "prop-types": "15.7.2",
     "react": "16.2.0",
-    "react-native": "0.53.0"
+    "react-native": "0.53.0",
+    "react-native-material-textfield": "git+https://github.com/witalobenicio/react-native-material-textfield.git",
+    "react-native-platform-touchable": "1.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
