@@ -35,5 +35,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'global-require': 'off',
     'import/no-unresolved': 'off',
+    'import/named': 'off',
   },
 };
