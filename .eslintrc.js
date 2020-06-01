@@ -33,8 +33,8 @@ module.exports = {
       }
     ],
     'import/prefer-default-export': 'off',
+    'react/state-in-constructor': 'off',
     'global-require': 'off',
     'import/no-unresolved': 'off',
-    'import/named': 'off',
   },
 };

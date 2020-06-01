@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Platform } from 'react-native';
+import { Text, View, Image, Platform, Alert } from 'react-native';
 import PropTypes from 'prop-types';
-import TextField from 'react-native-material-textfield';
+import { TextField } from 'react-native-material-textfield';
 import Touchable from 'react-native-platform-touchable';
-import _ from 'lodash';
 
 import Images from '../../assets/Images';
 import styles from './styles';
@@ -12,31 +11,34 @@ import { colors } from '../../constants';
 class Login extends Component {
   inputs = {};
 
-  statestate = {
+  state = {
     secureTextEntry: true,
     username: '',
     password: '',
   };
 
-  onUsernameChange(username) {
-    this.setState({ username });
-  }
+  onUsernameChange = (username) => this.setState({ username });
 
-  onPasswordChange(password) {
-    this.setState({ password });
-  }
+  onPasswordChange = (password) => this.setState({ password });
 
-  onAccessoryPress() {
-    this.setState((state) => ({ secureTextEntry: state.secureTextEntry }));
-  }
+  onAccessoryPress = () =>
+    this.setState((state) => ({ secureTextEntry: !state.secureTextEntry }));
 
   onPressAuthenticateDelay = () => {
+    const { username, password } = this.state;
     const { onPressAuthenticate } = this.props;
 
-    _.throttle(onPressAuthenticate, 5000, {
-      leading: true,
-      trailing: false,
-    });
+    if (username === '') {
+      Alert.alert('', 'O campo Login está vázio.');
+      return;
+    }
+
+    if (password === '') {
+      Alert.alert('', 'O campo Senha está vázio.');
+      return;
+    }
+
+    onPressAuthenticate(username, password);
   };
 
   focusTheField = (id, event) => {
@@ -87,7 +89,7 @@ class Login extends Component {
               <Touchable
                 style={styles.iconTextField}
                 foreground={Touchable.SelectableBackground()}
-                onPress={() => this.onAccessoryPress()}
+                onPress={this.onAccessoryPress}
               >
                 <Image source={sourcePassword} style={styles.iconTextField} />
               </Touchable>

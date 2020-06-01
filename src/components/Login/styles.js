@@ -1,7 +1,6 @@
 import { StyleSheet, Platform } from 'react-native';
 
-import fonts from '../../constants/fonts';
-import { colors } from '../../constants';
+import { colors, fonts } from '../../constants';
 
 const styles = StyleSheet.create({
   accountCard: {
