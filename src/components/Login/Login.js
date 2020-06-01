@@ -87,7 +87,6 @@ class Login extends Component {
             secureTextEntry={secureTextEntry}
             renderAccessory={() => (
               <Touchable
-                style={styles.iconTextField}
                 foreground={Touchable.SelectableBackground()}
                 onPress={this.onAccessoryPress}
               >
